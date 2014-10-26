@@ -1,3 +1,5 @@
+A d3 visualization of carrot2 output converted to flare.json
+
 # Haml Coffee Sinatra
 
 This is an example [Sinatra](https://github.com/sinatra/sinatra) application based on the
