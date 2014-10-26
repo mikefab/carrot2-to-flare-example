@@ -1,0 +1,66 @@
+:css
+  path {
+    stroke: #fff;
+    fill-rule: evenodd;
+  }
+
+  text {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+  }
+
+  pre {
+    white-space: pre-wrap;
+  }
+
+%html{'ng-app'=>"myApp"} 
+  %head
+    %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"}
+    %script{:src => "assets/underscore.js"}
+    %script{:src => "assets/d3.min.js"}
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"}
+    %script{ src: javascript_path('application') }
+    %link{:href => "https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.css", :rel => "stylesheet prefetch"}/
+  %body
+    .container-fluid
+      .row
+        .col-md-2
+          &nbsp;
+        .col-md-8{style: "padding: 20px;"}
+          .col-md-12{style: "background-color:rgba(86,61,124,.15);padding-bottom: 10px;padding-top: 10px;border-radius: 10px;font-size:16px"}
+            %p
+              %strong
+                Carrot2
+              clusters small selections of documents as illustrated&nbsp;
+              %a{href: 'https://github.com/ankane/carrot2-rb'}>here
+              \. I entered the names of a&nbsp;
+              %a{href: 'http://www.chefscatalog.com/recipe/recipe-list.aspx?browseby=2&param=Mediterranean'}>bunch of dishes
+              &nbsp;like:
+
+              %p
+
+                ["Red Pepper Hummus", "Hummus", "Appetizer Cream Puffs with Creamy Feta Olive Filling", "Olive & Roasted Red Pepper Bruschetta", "Tomato Basil Crostini", "Rosemary Goat Cheese Stuffed Figs with Prosciutto", "Baked Eggs with Prosciutto and Tomato", "Chocolate Almond Biscotti"...]
+
+
+            %p
+              On the lower  left is the output. The terms on the left are cluster nodes, and the numbers beside them are index numbers of the documents that contain them.
+
+            %p
+              So, Tomato 4,6,16,21,28,36 means that the term, "Tomato" is seen in documents number 4, 6, 16...etc
+            %p
+              This pen transforms the output into flare.json which can be a direct input to d3.js charts like this zoomable wheel.
+            %p 
+        .col-md-2
+          &nbsp;
+      .row          
+        .col-mid-12
+          #list{'ng-controller'=> 'listCtrl'}
+            .row
+              .col-md-2
+                %ul
+                  %li{"ng-repeat" => "phrase in phrases"} {{phrase}}
+              .col-md-8
+                .row
+                  .col-md-8
+                    %wheel{flare: "flare"}
+                      #vis
