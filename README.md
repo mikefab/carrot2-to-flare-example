@@ -1,6 +1,8 @@
 A d3 visualization of carrot2 output converted to flare.json
 
-# Haml Coffee Sinatra
+Live demo at http://codepen.io/mikefab/pen/wosqD
+
+Server:
 
 This is an example [Sinatra](https://github.com/sinatra/sinatra) application based on the
 [Sinatra Asset Pipeline](https://github.com/petebrowne/sinatra-asset-pipeline) example application  to show the
